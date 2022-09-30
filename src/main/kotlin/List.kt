@@ -48,6 +48,7 @@ fun listSum(list: List<Int>): Int =
 // ab ca. 10.000 Listenelemente: Stack Overflow
 
 // acc: Summe der "bisher gesehenen Elemente"
+// läuft mit konstantem Speicher / rekursive Aufruf braucht keinen Platz auf dem Stack
 tailrec fun listSum(list: List<Int>, acc: Int): Int =
     when (list) {
         is Empty -> acc
