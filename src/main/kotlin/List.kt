@@ -63,3 +63,11 @@ fun runOverAnimals(list: List<Animal>): List<Animal> =
         is Cons ->
             Cons(runOverAnimal(list.first), runOverAnimals(list.rest))
     }
+
+// Alle Elemente einer Liste verdoppeln
+fun doubleList(list: List<Int>): List<Int> =
+    when (list) {
+        is Empty -> Empty
+        is Cons ->
+            Cons(2 * list.first, doubleList(list.rest))
+    }
