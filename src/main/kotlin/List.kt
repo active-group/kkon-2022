@@ -52,3 +52,5 @@ fun listProduct(list: List<Int>): Int =
     }
 
 // Abstraktion
+
+// Zwei Listen aneinanderhängen
