@@ -42,3 +42,11 @@ fun listSum(list: List<Int>): Int =
 
 // extension method
 fun List<Int>.sum(): Int = listSum(this)
+
+// Elemente einer Liste multiplizieren
+fun listProduct(list: List<Int>): Int =
+    when (list) {
+        is Empty -> 1
+        is Cons ->
+            list.first * listProduct(list.rest)
+    }
