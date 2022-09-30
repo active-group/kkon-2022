@@ -21,3 +21,4 @@ val schlichem = Creek("Schlichem", "Tieringen")
 // - Nebenfluss
 data class Confluence(val name: String, val location: String,
                       val mainStem: River, val tributary: River)
+//                                  ^^^^^                 ^^^^^
