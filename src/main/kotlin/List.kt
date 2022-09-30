@@ -56,3 +56,10 @@ fun listProduct(list: List<Int>): Int =
 // Zwei Listen aneinanderhängen
 
 val highway = Cons(dillo1, Cons(dillo2, Cons(parrot1, Cons(parrot2, Empty))))
+
+fun runOverAnimals(list: List<Animal>): List<Animal> =
+    when (list) {
+        is Empty -> Empty
+        is Cons ->
+            Cons(runOverAnimal(list.first), runOverAnimals(list.rest))
+    }
