@@ -48,11 +48,12 @@ fun listSum(list: List<Int>): Int =
 // ab ca. 10.000 Listenelemente: Stack Overflow
 
 // acc: Summe der "bisher gesehenen Elemente"
-fun listSum(list: List<Int>, acc: Int): Int =
+tailrec fun listSum(list: List<Int>, acc: Int): Int =
     when (list) {
         is Empty -> acc
         is Cons ->
-             listSum(list.rest, acc + list.first)
+            // tail call / endrekursiver Aufruf
+            listSum(list.rest, acc + list.first)
     }
 
 
