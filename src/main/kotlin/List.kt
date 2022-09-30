@@ -16,7 +16,7 @@ object Empty : List<Nothing> {
 // Eine Cons-Liste besteht aus:
 // - erstes Element
 // - Rest-Liste
-data class Cons<A>(val first: A, val rest: List<A>): List<A> {
+data class Cons<out A>(val first: A, val rest: List<A>): List<A> {
 //    override fun sum(): Int = this.first + this.rest.sum()
 }
 
