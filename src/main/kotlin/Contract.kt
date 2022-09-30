@@ -19,7 +19,10 @@ typealias Amount = Double
 
 enum class Currency { EUR, GBP, CHF, USD, YEN }
 
-data class Date(val iso: String)
+data class Date(val iso: String) {
+    fun laterThan(other: Date): Boolean =
+        this.iso > other.iso
+}
 
 val christmas = Date("2022-12-24")
 
@@ -82,9 +85,12 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
                 Zero)
         is Multiple -> {
             val p = semantics(contract.contract, now)
-            Pair(p.first.map { it.scale(contract.amount)}, Multiple(p.second))
+            Pair(p.first.map { it.scale(contract.amount)}, Multiple(contract.amount, p.second))
         }
-        is Reverse -> TODO()
+        is Reverse -> {
+            val p = semantics(contract.contract, now)
+            Pair(p.first.map { it.reverse() }, Reverse(p.second))
+        }
         is Later -> TODO()
         is And -> TODO()
     }
