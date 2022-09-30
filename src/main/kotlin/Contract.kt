@@ -28,3 +28,6 @@ data class Call(val foo: Int): Contract
 
 sealed interface Contract
 data class One(val currency: Currency): Contract
+data class Multiple(val amount: Amount, val one: One): Contract
+
+val c1 = One(Currency.EUR) // "Ich bekomme 1€ jetzt."
