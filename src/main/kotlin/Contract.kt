@@ -61,3 +61,4 @@ fun currencySwap(date: Date,
         Reverse(zeroCouponBond(amount2, currency2, date)))
 
 // Semantik
+fun semantics(contract: Contract)
