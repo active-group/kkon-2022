@@ -68,4 +68,4 @@ data class Payment(val direction: Direction,
                    val date: Date, val amount: Amount, val currency: Currency)
 
 // Zahlungen bis zum Zeitpunkt now + Residualvertrag
-fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
+fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> = TODO()
