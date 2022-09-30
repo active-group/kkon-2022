@@ -70,8 +70,12 @@ data class Payment(val direction: Direction,
 // Zahlungen bis zum Zeitpunkt now + Residualvertrag
 fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
     when (contract) {
-        is Zero -> TODO()
-        is One -> TODO()
+        is Zero ->
+            Pair(Empty, Zero)
+        is One ->
+            Pair(Cons(Payment(Direction.LONG, now, 1.0, contract.currency), Empty),
+                Zero)
         is Multiple -> TODO()
         is Later -> TODO()
+        is And -> TODO()
     }
