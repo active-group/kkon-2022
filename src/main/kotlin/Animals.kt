@@ -28,6 +28,10 @@ data class Dillo(val liveness: Liveness, val weight: Weight): Animal {
         Dillo(Liveness.DEAD, this.weight)
 }
 
+// Gürteltier überfahren
+fun runOverDillo(dillo: Dillo): Dillo =
+    Dillo(Liveness.DEAD, dillo.weight)
+
 // lebendiges Gürteltier, 10kg
 val dillo1 = Dillo(Liveness.ALIVE, 10)
 // totes Gürteltier, 8kg
