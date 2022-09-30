@@ -24,6 +24,9 @@ data class Confluence(val name: String, val location: String,
 //                                  ^^^^^                 ^^^^^
 //                                  Selbstbezug
 
+val neckar1 = Confluence("Neckar", "Rottweil", prim, eschach)
+val neckar2 = Confluence("Neckar", "Epfendorf", neckar1, schlichem)
+
 // Fließt Wasser aus einem Ort in einen Fluss?
 fun flowsFrom(location: String, river: River): Boolean =
     when (river) {
