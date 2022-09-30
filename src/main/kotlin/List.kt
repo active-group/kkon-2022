@@ -73,3 +73,10 @@ fun doubleList(list: List<Int>): List<Int> =
     }
 
 fun times2(n: Int): Int = 2 * n
+
+fun listMap(f: (Int) -> Int, list: List<Int>): List<Int> =
+    when (list) {
+        is Empty -> Empty
+        is Cons ->
+            Cons(f(list.first), listMap(f, list.rest))
+    }
