@@ -154,7 +154,9 @@ fun <A> listFilter(p: (A) -> Boolean, list: List<A>): List<A> =
 fun even(n: Int): Boolean = n % 2 == 0
 fun odd(n: Int): Boolean = n % 2 != 0
 
-sealed interface Optional<out A>
+sealed interface Optional<out A> {
+    fun <B> map(f: (A) -> B): Optional<B>
+}
 data class Some<out A>(val value: A): Optional<A>
 object None : Optional<Nothing>
 
