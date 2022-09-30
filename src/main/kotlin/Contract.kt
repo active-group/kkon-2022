@@ -106,6 +106,7 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
         }
     }
 
+// smart constructor
 fun multiple(amount: Amount, contract: Contract): Contract =
     when (contract) {
         is Zero -> Zero
