@@ -54,3 +54,5 @@ fun listProduct(list: List<Int>): Int =
 // Abstraktion
 
 // Zwei Listen aneinanderhängen
+
+highway = Cons(dillo1, Cons(dillo2, Cons(parrot1, Cons(parrot2, Empty))))
