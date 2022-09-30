@@ -167,7 +167,7 @@ fun <A> listIndex(element: A, list: List<A>): Optional<Int> =
                 Some(0)
             else
                 when (listIndex(element, list.rest)) {
-                    is Empty -> TODO()
-                    is Cons -> TODO()
+                    is None -> TODO()
+                    is Some -> TODO()
                 }
     }
