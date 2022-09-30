@@ -39,7 +39,7 @@ val dillo2 = Dillo(Liveness.DEAD, 8)
 // - Satz
 // - Gewicht
 
-data class Parrot(val sentence: String, val weight: Weight) {
+data class Parrot(val sentence: String, val weight: Weight): Animal {
     // Papagei überfahren
     fun runOver(): Parrot = Parrot("", this.weight)
 }
