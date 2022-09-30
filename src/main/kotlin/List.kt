@@ -74,9 +74,13 @@ fun doubleList(list: List<Int>): List<Int> =
 
 fun times2(n: Int): Int = 2 * n
 
+// Funktion, die eine andere Funktion als Argument nimmt:
+// Higher-Order-Funktion
+
 fun <A, B> listMap(f: (A) -> B, list: List<A>): List<B> =
     when (list) {
         is Empty -> Empty
         is Cons ->
             Cons(f(list.first), listMap(f, list.rest))
     }
+
