@@ -46,7 +46,7 @@ fun List<Int>.sum(): Int = listSum(this)
 // Elemente einer Liste multiplizieren
 fun listProduct(list: List<Int>): Int =
     when (list) {
-        is Empty -> 1
+        is Empty -> 0
         is Cons ->
             list.first * listProduct(list.rest)
     }
