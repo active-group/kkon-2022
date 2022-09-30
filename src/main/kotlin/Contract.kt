@@ -40,6 +40,8 @@ data class Reverse(val contract: Contract): Contract
 
 data class And(val contract1: Contract, val contract2: Contract): Contract
 
+object Zero : Contract
+
 val c1 = One(Currency.EUR) // "Ich bekomme 1€ jetzt."
 val c2 = Multiple(100.0, c1) // "Ich bekomme 100€ jetzt."
 
