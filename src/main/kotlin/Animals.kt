@@ -13,6 +13,9 @@
 
 enum class Liveness { DEAD, ALIVE }
 
-typealias Weight = Integer
+typealias Weight = Int
 
 data class Dillo(val liveness: Liveness, val weight: Weight)
+
+// lebendiges Gürteltier, 10kg
+val dillo1 = Dillo(Liveness.ALIVE, 10)
