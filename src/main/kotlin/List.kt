@@ -157,6 +157,7 @@ fun odd(n: Int): Boolean = n % 2 != 0
 sealed interface Optional<out A> {
     // in List<A>
     // fun <B> map(f: (A) -> B): List    <B>
+    // Funktor / Functor
     fun <B>    map(f: (A) -> B): Optional<B>
 }
 data class Some<out A>(val value: A): Optional<A> {
