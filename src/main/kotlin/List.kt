@@ -179,7 +179,11 @@ fun <A> listFilter(p: (A) -> Boolean, list: List<A>): List<A> =
 fun even(n: Int): Boolean = n % 2 == 0
 fun odd(n: Int): Boolean = n % 2 != 0
 
-fun 
+fun <A> append(list1: List<A>, list2: List<A>): List<A> =
+    when (list1) {
+        is Empty -> list2
+        is Cons -> Cons(list1.first, append(list1.rest, list2))
+    }
 
 sealed interface Optional<out A> {
     // in List<A>
