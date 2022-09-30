@@ -28,6 +28,9 @@ data class Call(val foo: Int): Contract
 
 sealed interface Contract
 data class One(val currency: Currency): Contract
-data class Multiple(val amount: Amount, val one: One): Contract
+data class Multiple(val amount: Amount, val contract: Contract): Contract
+//                                                    ^^^^^^^^ Selbstbezug
+
 
 val c1 = One(Currency.EUR) // "Ich bekomme 1€ jetzt."
+val c2 = Multiple(100, c1) //
