@@ -58,16 +58,41 @@ tailrec fun listSum(list: List<Int>, acc: Int): Int =
     }
 
 
+
 // extension method
 fun List<Int>.sum(): Int = listSum(this)
 
 // Elemente einer Liste multiplizieren
 fun listProduct(list: List<Int>): Int =
     when (list) {
-        is Empty -> 1
+        is Empty -> 1 // neutrales Element
         is Cons ->
             list.first * listProduct(list.rest)
     }
+
+// Algebra
+
+// Struktur:
+// Typ T
+// Operation(en)
+// Gleichungen
+
+// konkret
+// Typ T
+// op: (T, T) -> T
+// op(a, op(b, c)) == op(op(a, b), c)
+// Halbgruppe
+
+// Halbgruppe + neutrales Element n: Monoid
+// op(a, n) = op(n, a) = a
+//
+
+// Assoziativgesetz
+// (a + b) + c == a + (b + c)
+// (a && b) && c == a && (b && c)
+
+// 0 ist das neutrale Element von +
+// 1 ist das neutrale Element von *
 
 /*
 
