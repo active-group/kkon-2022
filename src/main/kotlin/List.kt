@@ -155,7 +155,7 @@ fun even(n: Int): Boolean = n % 2 == 0
 fun odd(n: Int): Boolean = n % 2 != 0
 
 sealed interface Option<out A>
-data class Some<A>(value: A): Option<A>
+data class Some<out A>(value: A): Option<A>
 
 // Index eines Elements in einer Liste zu finden
 fun <A> listIndex(element: A, list: List<A>): Int =
