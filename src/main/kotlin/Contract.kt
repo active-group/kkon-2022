@@ -76,6 +76,7 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
             Pair(Cons(Payment(Direction.LONG, now, 1.0, contract.currency), Empty),
                 Zero)
         is Multiple -> TODO()
+        is Reverse -> TODO()
         is Later -> TODO()
         is And -> TODO()
     }
