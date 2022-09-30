@@ -179,6 +179,8 @@ fun <A> listFilter(p: (A) -> Boolean, list: List<A>): List<A> =
 fun even(n: Int): Boolean = n % 2 == 0
 fun odd(n: Int): Boolean = n % 2 != 0
 
+fun 
+
 sealed interface Optional<out A> {
     // in List<A>
     // fun <B> map(f: (A) -> B): List    <B>
@@ -214,3 +216,4 @@ fun <A> listIndex(element: A, list: List<A>): Optional<Int> =
 sealed interface Either<out L, out R>
 data class Left<L>(val value: L) : Either<L, Nothing>
 data class Right<R>(val value: R): Either<Nothing, R>
+
