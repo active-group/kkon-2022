@@ -6,7 +6,8 @@
 sealed interface River {}
 
 // Ein Bach hat folgende Eigenschaften:
+// - Name
 // - Ursprungsort
-data class Creek(val origin: String): River
+data class Creek(val name: String, val origin: String): River
 
-val 
+val eschach = Creek("Eschach", "Heimliswald")
