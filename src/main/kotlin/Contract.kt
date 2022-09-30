@@ -59,3 +59,5 @@ fun currencySwap(date: Date,
                  amount2: Amount, currency2: Currency) =
     And(zeroCouponBond(amount1, currency1, date),
         Reverse(zeroCouponBond(amount2, currency2, date)))
+
+// Semantik
