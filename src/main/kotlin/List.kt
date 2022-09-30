@@ -69,7 +69,7 @@ fun doubleList(list: List<Int>): List<Int> =
     when (list) {
         is Empty -> Empty
         is Cons ->
-            Cons(2 * list.first, doubleList(list.rest))
+            Cons(times2(list.first), doubleList(list.rest))
     }
 
 fun times2(n: Int): Int = 2 * n
