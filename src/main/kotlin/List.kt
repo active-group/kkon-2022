@@ -10,3 +10,6 @@ object Empty : List<Nothing>
 // - erstes Element
 // - Rest-Liste
 data class Cons<A>(val first: A, val rest: List<A>): List<A>
+
+// Liste mit 1 Element: 5
+val list1 = Cons(5, Empty)
