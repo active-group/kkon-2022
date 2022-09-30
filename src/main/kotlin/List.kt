@@ -5,6 +5,7 @@
 sealed interface List<out A> {
 // leider nicht:
 //    fun sum(): A
+    fun map(f: (A) -> B): List<B>
 }
 
 object Empty : List<Nothing> {
