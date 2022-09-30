@@ -30,7 +30,7 @@ sealed interface Contract
 data class One(val currency: Currency): Contract
 data class Multiple(val amount: Amount, val contract: Contract): Contract
 //                                                    ^^^^^^^^ Selbstbezug
-
+data class Later(val date: Date, val contract: Contract): Contract
 
 val c1 = One(Currency.EUR) // "Ich bekomme 1€ jetzt."
-val c2 = Multiple(100, c1) //
+val c2 = Multiple(100.0, c1) // "Ich bekomme 100€ jetzt."
