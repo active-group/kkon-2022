@@ -70,7 +70,9 @@ enum class Direction { LONG, SHORT }
 data class Payment(val direction: Direction,
                    val date: Date, val amount: Amount, val currency: Currency) {
     fun reverse(): Payment =
-        this.copy(direction = if (direction == Direction.LONG) Direction.SHORT else Direction.LONG)
+        this.copy(direction = when (direction)
+                                is Direction.SHORT -> Direction.LONG
+                                is Direction.LONG -> Direction.SHORT)
     fun scale(factor: Amount) =
         this.copy(amount = this.amount * factor)
 }
