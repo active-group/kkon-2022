@@ -53,7 +53,7 @@ fun listProduct(list: List<Int>): Int =
             list.first * listProduct(list.rest)
     }
 
-fun <A, B> listFold(e: B, f: (A, Int) -> B, list: List<A>): B =
+fun <A, B> listFold(e: B, f: (A, B) -> B, list: List<A>): B =
     when (list) {
         is Empty -> e
         is Cons ->
