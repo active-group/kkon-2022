@@ -50,3 +50,5 @@ fun listProduct(list: List<Int>): Int =
         is Cons ->
             list.first * listProduct(list.rest)
     }
+
+// Abstraktion
