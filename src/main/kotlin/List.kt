@@ -2,7 +2,7 @@
 // - die leere Liste
 // - eine Cons-Liste aus erstem Element und Rest-Liste
 //                                               ^^^^^ Selbstbezug
-sealed interface List<A>
+sealed interface List<out A>
 
 object Empty : List<Nothing>
 
