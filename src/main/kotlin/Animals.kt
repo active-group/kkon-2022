@@ -16,6 +16,7 @@ enum class Liveness { DEAD, ALIVE }
 typealias Weight = Int
 
 data class Dillo(val liveness: Liveness, val weight: Weight) {
+    // Gürteltier überfahren
     fun runOver(): Dillo =
         Dillo(Liveness.DEAD, this.weight)
 }
