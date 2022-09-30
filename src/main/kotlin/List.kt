@@ -53,6 +53,16 @@ fun listProduct(list: List<Int>): Int =
             list.first * listProduct(list.rest)
     }
 
+/*
+
+fun f(list: List<..:>) =
+  when (list) {
+    is Empty -> ...
+    is Cons ->
+      list.first ... f(list.rest)
+
+ */
+
 fun <A, B> listFold(e: B, f: (A, B) -> B, list: List<A>): B =
     when (list) {
         is Empty -> e
@@ -72,6 +82,9 @@ fun runOverAnimals(list: List<Animal>): List<Animal> =
         is Cons ->
             Cons(runOverAnimal(list.first), runOverAnimals(list.rest))
     }
+
+fun runOverAnimals2(list: List<Animal>): List<Animal> =
+    listFold(Empty, { first, recResult -> Cons(runOverAnimal(first), recResult)}, list)
 
 // Alle Elemente einer Liste mit 2 multiplizieren
 fun doubleList(list: List<Int>): List<Int> =
