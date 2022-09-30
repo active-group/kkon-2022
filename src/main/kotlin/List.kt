@@ -84,7 +84,9 @@ fun runOverAnimals(list: List<Animal>): List<Animal> =
     }
 
 fun runOverAnimals2(list: List<Animal>): List<Animal> =
-    listFold(Empty as List<Animal>, { first, recResult -> Cons(runOverAnimal(first), recResult)}, list)
+    listFold(Empty as List<Animal>,
+             { first, recResult -> Cons(runOverAnimal(first), recResult)},
+             list)
 
 // Alle Elemente einer Liste mit 2 multiplizieren
 fun doubleList(list: List<Int>): List<Int> =
