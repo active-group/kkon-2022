@@ -96,5 +96,9 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
                 semantics(contract.contract, now)
             else
                 Pair(Empty, contract)
-        is And -> TODO()
+        is And -> {
+            val p1 = semantics(contract.contract1, now)
+            val p2 = semantics(contract.contract2, now)
+            Pair(append(p1.first, p2.first), And(p1.second, p2.second))
+        }
     }
