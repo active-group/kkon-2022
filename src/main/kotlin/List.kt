@@ -89,4 +89,4 @@ fun <A, B> listMap(f: (A) -> B, list: List<A>): List<B> =
 
 // listEvens(list4) == Cons(8, Cons(6, Empty))
 
-fun even(n: Int): Int = n % 2 == 0
+fun even(n: Int): Boolean = n % 2 == 0
