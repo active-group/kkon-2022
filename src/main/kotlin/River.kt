@@ -11,7 +11,8 @@ sealed interface River {
 // - Name
 // - Ursprungsort
 data class Creek(val name: String, val origin: String): River {
-
+    override fun flowsFrom(location: String): Boolean =
+        location == this.origin
 }
 
 val eschach = Creek("Eschach", "Heimliswald")
@@ -25,6 +26,12 @@ val schlichem = Creek("Schlichem", "Tieringen")
 // - Nebenfluss
 data class Confluence(val name: String, val location: String,
                       val mainStem: River, val tributary: River): River
+{
+    override fun flowsFrom(location: String): Boolean =
+        location == this.location
+                || this.mainStem.flowsFrom(location)
+                || this.tributary.flowsFrom(location)
+}
 //                                  ^^^^^                 ^^^^^
 //                                  Selbstbezug
 
