@@ -89,4 +89,16 @@ fun <A, B> listMap(f: (A) -> B, list: List<A>): List<B> =
 
 // listEvens(list4) == Cons(8, Cons(6, Empty))
 
+// Alle ungeraden Elemente einer Liste extrahieren
+fun listOdds(list: List<Int>): List<Int> =
+    when (list) {
+        is Empty -> Empty
+        is Cons ->
+            if (odd(list.first))
+                Cons(list.first, listOdds(list.rest))
+            else
+                listOdds(list.rest)
+    }
+
 fun even(n: Int): Boolean = n % 2 == 0
+fun odd(n: Int): Boolean = n % 2 != 0
