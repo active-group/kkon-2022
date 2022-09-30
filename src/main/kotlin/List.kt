@@ -165,9 +165,11 @@ fun <A> listIndex(element: A, list: List<A>): Optional<Int> =
         is Cons ->
             if (list.first == element)
                 Some(0)
-            else
-                when (listIndex(element, list.rest)) {
-                    is None -> TODO()
-                    is Some -> TODO()
+            else {
+                val o = listIndex(element, list.rest)
+                when (o) {
+                    is None -> None
+                    is Some -> Some(o.value + 1)
                 }
+            }
     }
