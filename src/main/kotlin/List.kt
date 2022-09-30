@@ -50,7 +50,7 @@ fun listSum(list: List<Int>): Int =
 // acc: Summe der "bisher gesehenen Elemente"
 fun listSum(list: List<Int>, acc: Int): Int =
     when (list) {
-        is Empty -> TODO()
+        is Empty -> acc
         is Cons ->
              listSum(list.rest, acc + list.first)
     }
