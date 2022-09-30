@@ -84,3 +84,9 @@ fun <A, B> listMap(f: (A) -> B, list: List<A>): List<B> =
             Cons(f(list.first), listMap(f, list.rest))
     }
 
+// Alle geraden Elemente einer Liste extrahieren
+// fun listEvens(list: List<Int>): List<Int>
+
+// listEvens(list4) == Cons(8, Cons(6, Empty))
+
+fun even(n: Int): Int = n % 2 == 0
