@@ -27,6 +27,7 @@ val list4 = Cons(3, list3)
 
 fun listSum(list: List<Int>): Int =
     when (list) {
-        is Empty -> TODO()
-        is Cons -> TODO()
+        is Empty -> 0
+        is Cons ->
+            list.first + listSum(list.rest)
     }
