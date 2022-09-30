@@ -154,13 +154,13 @@ fun <A> listFilter(p: (A) -> Boolean, list: List<A>): List<A> =
 fun even(n: Int): Boolean = n % 2 == 0
 fun odd(n: Int): Boolean = n % 2 != 0
 
-sealed interface Option<out A>
-data class Some<out A>(val value: A): Option<A>
-data class None : Option<Nothing>
+sealed interface Optional<out A>
+data class Some<out A>(val value: A): Optional<A>
+object None : Optional<Nothing>
 
 // Index eines Elements in einer Liste zu finden
-fun <A> listIndex(element: A, list: List<A>): Int =
+fun <A> listIndex(element: A, list: List<A>): Option<Int> =
     when (list) {
-        is Empty -> throw ()
+        is Empty -> None
         is Cons -> TODO()
     }
