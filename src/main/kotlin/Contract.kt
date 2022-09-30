@@ -8,6 +8,10 @@ Zero-Coupon Bond / Zero-Bond
 - Währung: "Ich bekomme 1€ jetzt."
 - Vielfaches: "Ich bekomme 100€ jetzt."
 - Später
+
+3. Wiederholen mit anderen Beispielen
+
+"Currency swap": Weihnachten bekomme ich 100€ und ich zahle 100GBP.
  */
 
 
@@ -32,7 +36,18 @@ data class Multiple(val amount: Amount, val contract: Contract): Contract
 //                                                    ^^^^^^^^ Selbstbezug
 data class Later(val date: Date, val contract: Contract): Contract
 
+data class Reverse(val contract: Contract): Contract
+
+data class And(val contract1: Contract, val contract2: Contract): Contract
+
 val c1 = One(Currency.EUR) // "Ich bekomme 1€ jetzt."
 val c2 = Multiple(100.0, c1) // "Ich bekomme 100€ jetzt."
 
+// Weihnachten bekomme ich 100€.
 val zcb1 = Later(christmas, Multiple(100.0, One(Currency.EUR)))
+
+fun zeroCouponBond(amount: Amount, currency: Currency, date: Date): Contract =
+    Later(date, Multiple(amount, One(currency)))
+
+// Weihnachten zahle ich 100€.
+val c3 = Reverse(zcb1)
