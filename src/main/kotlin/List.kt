@@ -64,10 +64,12 @@ fun runOverAnimals(list: List<Animal>): List<Animal> =
             Cons(runOverAnimal(list.first), runOverAnimals(list.rest))
     }
 
-// Alle Elemente einer Liste verdoppeln
+// Alle Elemente einer Liste mit 2 multiplizieren
 fun doubleList(list: List<Int>): List<Int> =
     when (list) {
         is Empty -> Empty
         is Cons ->
             Cons(2 * list.first, doubleList(list.rest))
     }
+
+fun times2(n: Int): Int = 2 * n
