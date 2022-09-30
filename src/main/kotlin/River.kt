@@ -11,3 +11,5 @@ sealed interface River {}
 data class Creek(val name: String, val origin: String): River
 
 val eschach = Creek("Eschach", "Heimliswald")
+val prim = Creek("Prim", "Dreifaltigkeitsberg")
+val schlichem = Creek("Schlichem", "Tieringen")
