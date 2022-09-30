@@ -27,4 +27,4 @@ data class Call(val foo: Int): Contract
  */
 
 sealed interface Contract
-data class One(currency: Currency): Contract
+data class One(val currency: Currency): Contract
