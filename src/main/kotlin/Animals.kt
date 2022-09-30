@@ -1,5 +1,12 @@
 // Tiere auf dem texanischen Highway
 
+// Ein Tier ist eins der folgenden:
+// - Gürteltier - ODER -
+// - Papagei
+sealed interface Animal {
+
+}
+
 // Datendefinition:
 // Gürteltier hat folgende Eigenschaften:
 // - tot oder lebendig - UND -
@@ -15,7 +22,7 @@ enum class Liveness { DEAD, ALIVE }
 
 typealias Weight = Int
 
-data class Dillo(val liveness: Liveness, val weight: Weight) {
+data class Dillo(val liveness: Liveness, val weight: Weight): Animal {
     // Gürteltier überfahren
     fun runOver(): Dillo =
         Dillo(Liveness.DEAD, this.weight)
@@ -28,4 +35,11 @@ val dillo2 = Dillo(Liveness.DEAD, 8)
 
 // unveränderliche Daten
 
-// Gürteltier überfahren
+// Ein Papagei hat folgende Eigenschaften:
+// - Satz
+// - Gewicht
+
+data class Parrot(val sentence: String, val weight: Weight) {
+    // Papagei überfahren
+    fun runOver(): Parrot = Parrot("", this.weight)
+}
