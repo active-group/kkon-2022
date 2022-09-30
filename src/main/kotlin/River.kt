@@ -3,12 +3,16 @@
 // - ein Zusammenfluss
 // Fallunterscheidung
 
-sealed interface River {}
+sealed interface River {
+    fun flowsFrom(location: String): Boolean
+}
 
 // Ein Bach hat folgende Eigenschaften:
 // - Name
 // - Ursprungsort
-data class Creek(val name: String, val origin: String): River
+data class Creek(val name: String, val origin: String): River {
+
+}
 
 val eschach = Creek("Eschach", "Heimliswald")
 val prim = Creek("Prim", "Dreifaltigkeitsberg")
