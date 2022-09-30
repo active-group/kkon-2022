@@ -3,18 +3,19 @@
 // - eine Cons-Liste aus erstem Element und Rest-Liste
 //                                               ^^^^^ Selbstbezug
 sealed interface List<out A> {
-    fun sum(): Int
+// leider nicht:
+//    fun sum(): A
 }
 
 object Empty : List<Nothing> {
-    override fun sum(): Int = 0
+//    override fun sum(): A = 0
 }
 
 // Eine Cons-Liste besteht aus:
 // - erstes Element
 // - Rest-Liste
 data class Cons<A>(val first: A, val rest: List<A>): List<A> {
-    override fun sum(): Int = this.first + this.rest.sum()
+//    override fun sum(): Int = this.first + this.rest.sum()
 }
 
 // Liste mit 1 Element: 5
@@ -39,3 +40,5 @@ fun listSum(list: List<Int>): Int =
             list.first + listSum(list.rest)
     }
 
+// extension method
+fun List<Int>.sum(): Int = listSum(this)
