@@ -42,6 +42,20 @@ fun listSum(list: List<Int>): Int =
             list.first + listSum(list.rest)
     }
 
+// Zur Laufzeit muß sich die JVM den Kontext list.first + ... merken.
+// JVM: Braucht Speicherplatz auf dem Stack.
+// auf der JVM: Stack hat feste Größe, i.d.R. klein
+// ab ca. 10.000 Listenelemente: Stack Overflow
+
+// acc: Summe der "bisher gesehenen Elemente"
+fun listSum(list: List<Int>, acc: Int): Int =
+    when (list) {
+        is Empty -> TODO()
+        is Cons ->
+             listSum(list.rest, acc + list.first)
+    }
+
+
 // extension method
 fun List<Int>.sum(): Int = listSum(this)
 
