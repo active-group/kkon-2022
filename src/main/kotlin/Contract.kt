@@ -34,3 +34,5 @@ data class Later(val date: Date, val contract: Contract): Contract
 
 val c1 = One(Currency.EUR) // "Ich bekomme 1€ jetzt."
 val c2 = Multiple(100.0, c1) // "Ich bekomme 100€ jetzt."
+
+val zcb1 = Later(christmas, Multiple(100.0, One(Currency.EUR)))
