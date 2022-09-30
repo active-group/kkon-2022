@@ -159,8 +159,15 @@ data class Some<out A>(val value: A): Optional<A>
 object None : Optional<Nothing>
 
 // Index eines Elements in einer Liste zu finden
-fun <A> listIndex(element: A, list: List<A>): Option<Int> =
+fun <A> listIndex(element: A, list: List<A>): Optional<Int> =
     when (list) {
         is Empty -> None
-        is Cons -> TODO()
+        is Cons ->
+            if (list.first == element)
+                Some(0)
+            else
+                when (listIndex(element, list.rest)) {
+                    is Empty -> TODO()
+                    is Cons -> TODO()
+                }
     }
