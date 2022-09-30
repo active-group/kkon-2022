@@ -51,3 +51,15 @@ data class Parrot(val sentence: String, val weight: Weight): Animal {
 // Papagei überfahren
 fun runOverParrot(parrot: Parrot): Parrot =
     Parrot("", parrot.weight)
+
+fun runOverAnimal(animal: Animal): Animal =
+    // Animal hat 2 Fälle
+    // Schablone:
+//    when (animal) {
+//        is Dillo -> TODO()
+//        is Parrot -> TODO()
+//    }
+    when (animal) {
+        is Dillo -> runOverDillo(animal)
+        is Parrot -> runOverParrot(animal)
+    }
