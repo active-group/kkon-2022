@@ -5,3 +5,8 @@
 sealed interface List<A>
 
 object Empty : List<Nothing>
+
+// Eine Cons-Liste besteht aus:
+// - erstes Element
+// - Rest-Liste
+data class Cons<A>(val first: A, val rest: List<A>): List<A>
