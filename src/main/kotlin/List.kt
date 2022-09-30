@@ -157,8 +157,12 @@ fun odd(n: Int): Boolean = n % 2 != 0
 sealed interface Optional<out A> {
     fun <B> map(f: (A) -> B): Optional<B>
 }
-data class Some<out A>(val value: A): Optional<A>
-object None : Optional<Nothing>
+data class Some<out A>(val value: A): Optional<A> {
+    override fun <B> map(f: (A) -> B): Optional<B> = Some(f(this.value))
+}
+object None : Optional<Nothing> {
+    override fun <B> map(f: (Nothing) -> B): Optional<B> = None
+}
 
 // Index eines Elements in einer Liste zu finden
 fun <A> listIndex(element: A, list: List<A>): Optional<Int> =
