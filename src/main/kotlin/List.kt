@@ -100,5 +100,16 @@ fun listOdds(list: List<Int>): List<Int> =
                 listOdds(list.rest)
     }
 
+fun <A> listFilter(p: (A) -> Boolean, list: List<A>): List<A> =
+    when (list) {
+        is Empty -> Empty
+        is Cons ->
+            if (p(list.first))
+                Cons(list.first, listFilter(p, list.rest))
+            else
+                listFilter(p, list.rest)
+    }
+
+
 fun even(n: Int): Boolean = n % 2 == 0
 fun odd(n: Int): Boolean = n % 2 != 0
