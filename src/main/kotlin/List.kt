@@ -53,6 +53,13 @@ fun listProduct(list: List<Int>): Int =
             list.first * listProduct(list.rest)
     }
 
+fun listFold(e: Int, f: (Int, Int) -> Int, list: List<Int>): Int =
+    when (list) {
+        is Empty -> e
+        is Cons ->
+            f(list.first, listFold(e, f, list.rest))
+    }
+
 // Abstraktion
 
 // Zwei Listen aneinanderhängen
