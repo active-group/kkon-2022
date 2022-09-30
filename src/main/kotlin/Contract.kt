@@ -91,6 +91,10 @@ fun semantics(contract: Contract, now: Date): Pair<List<Payment>, Contract> =
             val p = semantics(contract.contract, now)
             Pair(p.first.map { it.reverse() }, Reverse(p.second))
         }
-        is Later -> TODO()
+        is Later ->
+            if (now.laterThan(contract.date))
+                semantics(contract.contract, now)
+            else
+                Pair(Empty, contract)
         is And -> TODO()
     }
