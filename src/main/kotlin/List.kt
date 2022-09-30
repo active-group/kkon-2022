@@ -155,7 +155,9 @@ fun even(n: Int): Boolean = n % 2 == 0
 fun odd(n: Int): Boolean = n % 2 != 0
 
 sealed interface Optional<out A> {
-    fun <B> map(f: (A) -> B): Optional<B>
+    // in List<A>
+    // fun <B> map(f: (A) -> B): List    <B>
+    fun <B>    map(f: (A) -> B): Optional<B>
 }
 data class Some<out A>(val value: A): Optional<A> {
     override fun <B> map(f: (A) -> B): Optional<B> = Some(f(this.value))
@@ -169,6 +171,8 @@ fun <A> listIndex(element: A, list: List<A>): Optional<Int> =
     when (list) {
         is Empty -> None
         is Cons ->
+            listIndex(element, list.rest).map { it + 1 }
+            /*
             if (list.first == element)
                 Some(0)
             else {
@@ -178,6 +182,7 @@ fun <A> listIndex(element: A, list: List<A>): Optional<Int> =
                     is Some -> Some(o.value + 1)
                 }
             }
+             */
     }
 
 sealed interface Either<out L, out R>
