@@ -47,3 +47,7 @@ data class Parrot(val sentence: String, val weight: Weight): Animal {
     // Papagei überfahren
     fun runOver(): Parrot = Parrot("", this.weight)
 }
+
+// Papagei überfahren
+fun runOverParrot(parrot: Parrot): Parrot =
+    Parrot("", parrot.weight)
