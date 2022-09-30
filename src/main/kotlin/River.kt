@@ -29,7 +29,10 @@ fun flowsFrom(location: String, river: River): Boolean =
     when (river) {
         is Creek -> location == river.origin
         is Confluence ->
+            river.location == location
             // Selbstbezug in der Eingabe => rekursiver Aufruf
-            flowsFrom(location, river.mainStem)
-            flowsFrom(location, river.tributary)
+            // fließt Wasser aus Hauptfluss in location?
+                    || flowsFrom(location, river.mainStem)
+            // fließt Wasser aus Nebenfluss in location?
+                    || flowsFrom(location, river.tributary)
     }
