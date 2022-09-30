@@ -5,7 +5,8 @@
 sealed interface List<out A> {
 // leider nicht:
 //    fun sum(): A
-    fun map(f: (A) -> B): List<B>
+    fun <B> map(f: (A) -> B): List<B> = listMap(f, this)
+    fun filter(p: (A) -> Boolean): List<A> = listFilter(p, this)
 }
 
 object Empty : List<Nothing> {
